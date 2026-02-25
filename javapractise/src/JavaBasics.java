@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class JavaBasics {
@@ -76,6 +73,17 @@ public class JavaBasics {
         Iterator<String> iterator = myArrayList.iterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next());
+        }
+
+        List<Student> students = new ArrayList<>();
+
+        students.add(new Student("Ajay", 27));
+        students.add(new Student("Sneha", 23));
+        students.add(new Student("Simran", 37));
+
+        students.sort(Comparator.comparing(Student :: getName).thenComparing(Student::getAge));
+        for (Student it : students) {
+            System.out.println(it);
         }
     }
 }
